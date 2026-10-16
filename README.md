@@ -7,7 +7,7 @@ kit. Custom hardware is limited to 2-layer boards.
 
 | Board | Status |
 |---|---|
-| `IR_Headset.kicad_sch`: LTE interface board | Schematic done (ERC clean), PCB not started |
+| `IR_Headset.kicad_sch` / `.kicad_pcb`: LTE interface board | Schematic done (ERC clean); PCB has all parts, not yet routed |
 
 The LTE interface board connects a NimbeLink Skywire NL-SW-LTE-S7648 modem to the
 dev kit's J1 GPIO header over a 40-way ribbon (2.54 mm assumed; verify on your carrier):
