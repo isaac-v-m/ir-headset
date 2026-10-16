@@ -1,0 +1,7 @@
+# KiCad: per-user settings, lock files, local history, backups, caches
+*.kicad_prl
+*.lck
+.history/
+_restore_backup_*/
+*-backups/
+fp-info-cache
