@@ -1,0 +1,143 @@
+~ NIR scene-imaging headset. Pulsed 850 nm LEDs light a target 1 to 10 m away, and a 5 MP sensor behind a 16 mm lens collects the reflected light. The compute and cellular parts come from the pole-mounted camera teardown [@CEHRP-Flock].
+
+reference constants as k
+
+submodel led
+submodel M12B1618 as lens
+submodel sensor as s
+submodel display as d
+submodel battery as b
+submodel open_q_624a as som
+submodel s7648 as lte
+
+section Requirements
+
+Working distance: w = 1 | 10 :m
+
+    ~ Requirement. Nearest and farthest target.
+
+Scene reflectance (0, 1): rho = 0.1 | 0.6
+
+    ~ Assumed range from dark clothing to bright surfaces at the LED wavelength. Replace with a measured or cited range.
+
+Ambient temperature: T_a = T_0.k + (15:K) | T_0.k + (30:K) :K
+
+    ~ Assumed indoor use, 15 °C to 30 °C.
+
+Required signal-to-noise ratio: S_r = 10
+
+    ~ Assumed minimum for recognizable imagery.
+
+Required runtime: t_r = 4 :hr
+
+    ~ Requirement. One work shift.
+
+Mass limit: m_max = 250 :g
+
+    ~ Requirement. Comfort when worn.
+
+Eye irradiance limit: E_max = 100 :W/m^2
+
+    ~ Corneal and lens limit for 780 nm to 3000 nm and exposures longer than 1000 s, page 4 of [@Osram-AN090], who cite IEC 62471. The retinal thermal limit on source radiance is not modeled.
+
+section Design choices
+
+LED count: n = 4
+
+    ~ Design choice, set by the signal-to-noise ratio needed.
+
+Exposure time: t_e = 10 :ms
+
+    ~ Design choice, short enough to limit motion blur. The LEDs are strobed during it.
+
+Frame rate: f_r = 30 :Hz
+
+    ~ Design choice.
+
+section Illumination
+
+Duty cycle (0, 1): D = t_e * f_r / (2*pi)
+
+    ~ Fraction of time the LEDs are on. Oneil stores Hz as rad/s, so dividing by $2\pi$ returns cycles.
+
+Photon energy: E_p = h.k * c.k / lam.led :J
+
+Spot radius: r_s = w * tan(theta.led) :m
+
+    ~ Circular spot at the working distance.
+
+In-pulse scene irradiance: E_s = n * Phi.led / (pi * r_s^2) :W/m^2
+
+    ~ Uniform spot assumed. The real center is brighter, so this underestimates the peak.
+
+$ Time-averaged eye irradiance: E_a = D * E_s :W/m^2
+
+    ~ Pulsed sources are compared with the continuous limit using the duty-cycle average, provided one pulse is within the limit alone, page 9 of [@Osram-AN090].
+
+section Imaging
+
+Sensor irradiance: E_i = rho * E_s * tau.lens / (4 * N.lens^2) :W/m^2
+
+    ~ Lambertian target on the optical axis, thin lens, target much farther than the focal length.
+
+Photons per pixel: N_p = E_i * p.s^2 * t_e * eta.s / E_p
+
+$ Signal-to-noise ratio: S = sqrt(N_p)
+
+    ~ Shot-noise limited. Read noise and ambient light are ignored, so this is optimistic.
+
+Half field of view: theta_f = atan(d.s / (2 * f.lens))
+
+    ~ Along the sensor diagonal.
+
+section Power and mass
+
+LED electrical power: P_l = n * D * Phi.led / eta.led :W
+
+    ~ Average draw, not peak.
+
+Total power: P_t = P_l + P.s + P.d + P.som + P.lte :W
+
+$ Total mass: m_t = n * m.led + m.lens + m.s + m.d + m.b + m.som + m.lte :g
+
+$ Runtime: t = E.b * eta.b / P_t :hr
+
+    ~ Usable battery energy over the average total draw.
+
+section Tests
+
+test: t >= t_r
+
+test: S >= S_r
+
+test: m_t <= m_max
+
+test: E_a <= E_max
+
+test: theta_f <= theta.led
+
+    ~ The LED beam must cover the whole field of view.
+
+test: w >= d_m.lens
+
+    ~ Targets must be beyond the lens minimum object distance.
+
+test: d.s <= d_c.lens
+
+    ~ The sensor must fit inside the lens image circle.
+
+test: n_x.s * n_y.s <= M.som
+
+    ~ The sensor resolution must be within the compute module camera limit.
+
+test: V.b >= min(V.som) and V.b <= max(V.som)
+
+    ~ The nominal cell voltage must be inside the compute module supply range.
+
+test: min(T_a) >= min(T.som) and max(T_a) <= max(T.som)
+
+    ~ The ambient range must fit inside the compute module operating range.
+
+test: min(T_a) >= min(T.lte) and max(T_a) <= max(T.lte)
+
+    ~ The ambient range must fit inside the modem operating range.

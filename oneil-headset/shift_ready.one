@@ -1,0 +1,11 @@
+~ Brighter, longer exposures at a lower frame rate, with four cells. Lower frame rate cuts the LED duty cycle, which is the cheapest way to buy back runtime.
+
+design headset
+
+n = 8
+
+t_e = 20 :ms
+
+f_r = 10 :Hz
+
+n.b = 4

@@ -1,0 +1,29 @@
+~ Placeholder 5 MP, 1/2 inch format image sensor. The teardown of the pole-mounted camera [@CEHRP-Flock] does not identify its sensor, so every value below is an assumption sized to match the 5 MP, 1/2 inch lens.
+
+Pixel columns: n_x = 2592
+
+    ~ Assumed. A common 4:3 layout for 5 MP.
+
+Pixel rows: n_y = 1944
+
+    ~ Assumed. A common 4:3 layout for 5 MP.
+
+Sensor diagonal: d = 8 :mm
+
+    ~ Optical format of a 1/2 inch sensor [@Commonlands-CIL161].
+
+Pixel pitch: p = d / sqrt(n_x^2 + n_y^2) :um
+
+    ~ Square pixels filling the diagonal.
+
+Quantum efficiency (0, 1): eta = 0.2 | 0.3
+
+    ~ Assumed at the LED wavelength. Silicon sensors lose sensitivity toward 850 nm, so take this from the datasheet curve.
+
+Power consumption: P = 0.4 :W
+
+    ~ Assumed.
+
+Mass: m = 5 :g
+
+    ~ Assumed.

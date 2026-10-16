@@ -1,0 +1,25 @@
+~ NimbeLink Skywire NL-SW-LTE-S7648, an LTE Cat 1 modem [@NimbeLink-S7648]. A specific part that will not be swapped, so the file is named for it. It is the modem found in the teardown [@CEHRP-Flock].
+
+reference constants as k
+
+Supply voltage: V = 3.0 | 5.5 :V
+
+    ~ Minimum and maximum of the main supply, connector pin table in section 2.1.2.1.
+
+Test voltage: V_t = 3.8 :V
+
+    ~ Supply voltage used for the current measurements, section 2.1.2.3.
+
+Average current: I = 17.74 | 192.5 :mA
+
+    ~ From the typical power consumption table, section 2.1.2.3: lowest is idle in low-power mode, highest is an active socket transfer at 40 dB attenuation. Peaks reach 1.5 A, so the supply must handle them.
+
+Power consumption: P = V_t * I :W
+
+Operating temperature: T = T_0.k - (40:K) | T_0.k + (85:K) :K
+
+    ~ -40 °C to +85 °C, section 2.3.
+
+Mass: m = 0.4/16 :lb
+
+    ~ The datasheet gives 0.4 oz, section 2.2.1. Oneil has no ounce unit yet, so this uses 16 oz per lb.

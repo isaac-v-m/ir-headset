@@ -1,0 +1,9 @@
+~ Generic micro-display. It matters only for power and mass. Every value is an assumption.
+
+Power consumption: P = 0.5 | 0.9 :W
+
+    ~ Assumed, dim to full brightness.
+
+Mass: m = 15 :g
+
+    ~ Assumed.

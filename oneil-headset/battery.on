@@ -1,0 +1,25 @@
+~ Generic lithium-ion pack of identical cells in parallel. All values are assumptions for an 18650-class cell until a real cell is chosen.
+
+Cell capacity: C = 3 :Ah
+
+    ~ Assumed.
+
+Cell voltage: V = 3.7 :V
+
+    ~ Assumed nominal voltage.
+
+Cell mass: m_c = 47 :g
+
+    ~ Assumed.
+
+Cell count: n = 1
+
+    ~ Design choice. Parallel cells add capacity and keep the voltage.
+
+Usable fraction (0, 1): eta = 0.8
+
+    ~ Assumed share of capacity that can be drawn before cutoff.
+
+Stored energy: E = n * C * V :Wh
+
+Mass: m = n * m_c :g

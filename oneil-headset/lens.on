@@ -1,0 +1,25 @@
+~ Generic fixed-focus M12 lens. These defaults are placeholders. A specific lens is a design file that starts with `design lens` and overrides what its datasheet states.
+
+Focal length: f = 8 :mm
+
+    ~ Assumed.
+
+F-number: N = 2.0
+
+    ~ Assumed.
+
+Transmission (0, 1): tau = 0.85
+
+    ~ Assumed at the LED wavelength. Datasheets for visible-band lenses often omit it, so measure or request it.
+
+Image circle: d_c = 8 :mm
+
+    ~ Largest sensor diagonal the lens covers. A 1/2 inch format has an 8.0 mm image circle [@Commonlands-CIL161].
+
+Minimum object distance: d_m = 300 :mm
+
+    ~ Assumed. Closer targets are out of focus.
+
+Mass: m = 5 :g
+
+    ~ Assumed.

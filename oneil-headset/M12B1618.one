@@ -1,0 +1,11 @@
+~ Basler Evetar M12B1618, 16 mm f/1.8 with a 1/2 inch image circle, in the variant without an IR-cut filter (order number 2000036374) [@Basler-M12B1618]. A lens with the filter would block the 850 nm illumination. The specification does not state transmission at 850 nm or mass, so the defaults in `lens.on` stay.
+
+design lens
+
+f = 16 :mm
+
+N = 1.8
+
+d_c = 8 :mm
+
+d_m = 350 :mm

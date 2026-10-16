@@ -1,0 +1,23 @@
+~ Lantronix Open-Q 624A system on module [@Lantronix-624A]. A specific part that will not be swapped, so the file is named for it. Its onboard Wi-Fi, Bluetooth and GPS receiver are not modeled because no performance metric depends on them.
+
+reference constants as k
+
+Supply voltage: V = 3.6 | 4.2 :V
+
+    ~ Power input range, hardware specifications table.
+
+Operating temperature: T = T_0.k | T_0.k + (50:K) :K
+
+    ~ 0 °C to 50 °C, hardware specifications table.
+
+Maximum camera resolution: M = 21e6
+
+    ~ Pixel count of the 21 MP camera limit, hardware specifications table.
+
+Power consumption: P = 1.5 | 4 :W
+
+    ~ ASSUMPTION. The product brief does not publish power draw. Request the full hardware datasheet or measure it.
+
+Mass: m = 15 :g
+
+    ~ ASSUMPTION. Not published. A 50 mm by 46.5 mm board.

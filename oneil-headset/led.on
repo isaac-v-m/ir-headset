@@ -1,0 +1,21 @@
+~ Generic NIR LED, a placeholder until a real part is chosen. Every value below is an assumption. To use a real part, write a design file named for it that starts with `design led`.
+
+Peak wavelength: lam = 850 :nm
+
+    ~ Design choice. It must sit where the sensor still has useful quantum efficiency.
+
+Radiant flux: Phi = 0.5 :W
+
+    ~ Assumed output of one LED at its rated current. Take it from the datasheet.
+
+Wall-plug efficiency (0, 1): eta = 0.3 | 0.4
+
+    ~ Assumed optical power out over electrical power in. Take it from the datasheet.
+
+Beam half-angle (0, 90): theta = 15 :deg
+
+    ~ Assumed for a 30 degree full-angle optic. Take it from the datasheet.
+
+Mass: m = 1 :g
+
+    ~ Assumed.

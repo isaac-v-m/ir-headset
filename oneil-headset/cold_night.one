@@ -1,0 +1,13 @@
+~ The shift-ready headset used outdoors on a cold night.
+
+design headset
+
+n = 8
+
+t_e = 20 :ms
+
+f_r = 10 :Hz
+
+n.b = 4
+
+T_a = T_0.k - (10:K) | T_0.k + (5:K) :K

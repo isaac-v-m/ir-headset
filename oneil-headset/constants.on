@@ -1,0 +1,9 @@
+~ Facts that are true for every design. Exact by definition of the SI and of the Celsius scale [@NIST-CODATA].
+
+Planck constant: h = 6.62607015e-34 :J*s
+
+Speed of light: c = 299792458 :m/s
+
+Celsius offset: T_0 = 273.15 :K
+
+    ~ Kelvin value of 0 °C. Oneil has no Celsius unit, so a datasheet temperature in °C is written as this offset plus or minus a difference in K.

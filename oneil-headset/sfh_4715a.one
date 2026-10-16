@@ -1,0 +1,31 @@
+~ OSRAM OSLON Black SFH 4715A, a 850 nm infrared emitter [@Osram-SFH4715A]. Values are typical, at 1 A and a 10 ms pulse unless noted.
+
+design led
+
+lam = 860 :nm
+
+    ~ Peak wavelength. The centroid wavelength is 850 nm, section Characteristics.
+
+Forward voltage: V_f = 1.65 | 2.1 :V
+
+    ~ Typical and maximum, section Characteristics.
+
+Forward current: I_f = 1 :A
+
+    ~ Test condition for the radiant flux and forward voltage below, and the maximum DC rating.
+
+Phi = 785 :mW
+
+    ~ Total radiant flux, typical, section Characteristics.
+
+eta = Phi / (V_f * I_f)
+
+    ~ Optical power out over electrical power in, from the values above. Not published as a figure.
+
+theta = 45 :deg
+
+    ~ Half angle, typical, section Characteristics.
+
+m = 32 :mg
+
+    ~ Approximate, package outline.
